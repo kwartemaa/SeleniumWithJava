@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Pages.HomePage;
+import Pages.LoginPage;
 
 public class LoginScenarios extends TestBase {
     static String email = "anita.twumasi-ankrah@amalitech.com";
@@ -13,8 +14,10 @@ public class LoginScenarios extends TestBase {
 
     @Test
     public void successfulLogin () throws InterruptedException {
-HomePage.navigateToLoginPage(driver);
-
+        HomePage.navigateToLoginPage(driver);
+        LoginPage.fillEmailField(driver);
+        LoginPage.fillPasswordField(driver);
+        LoginPage.clickSignInButton(driver);
 //      driver.findElement(By.xpath("//a[@id='landingpage_login_btn']")).click();
 //        driver.findElement(By.xpath("//input[@id='InputEmail']")).sendKeys(email);
 //        driver.findElement(By.xpath("//input[@id='InputPassword1']")).sendKeys(password);
