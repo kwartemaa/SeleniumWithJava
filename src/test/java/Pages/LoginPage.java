@@ -18,19 +18,18 @@ public class LoginPage {
     public LoginPage(WebDriver driver){
         this.driver=driver;
     }
-    public static void fillEmailField(WebDriver driver){
+    public static void fillEmailField(WebDriver driver, String email){
         element = driver.findElement(By.xpath("//input[@id='InputEmail']"));
         element.sendKeys(email);
     }
 
-    public static void fillPasswordField(WebDriver driver){
+    public static void fillPasswordField(WebDriver driver, String password){
         element = driver.findElement(By.xpath("//input[@id='InputPassword1']"));
-        element.sendKeys("123456aA_");
+        element.sendKeys(password);
     }
 
     public static void clickSignInButton(WebDriver driver){
         element = driver.findElement(By.xpath("//button[@id='signin_button']"));
         element.click();
     }
-
 }

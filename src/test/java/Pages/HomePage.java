@@ -17,6 +17,18 @@ public class HomePage {
       element.click();
     }
 
+    public static void addToCartFromHome(WebDriver driver){
+        WebElement cartIcon = driver.findElement(By.xpath("//button[@id='cart-button'][1]"));
+        cartIcon.click();
+    }
+
+    public static void navigateToProductPage(WebDriver driver){
+        WebElement productImage = driver.findElement(By.xpath("//img[@id='product-image'][1]"));
+        productImage.click();
+    }
+
+
+
 
 
 
