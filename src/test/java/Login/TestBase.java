@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import Pages.HomePage;
 
 public class TestBase {
     public static String browser = "chrome";
@@ -33,6 +34,11 @@ public class TestBase {
             }
         }
         driver.get(baseUrl);
+    }
+
+    @BeforeMethod
+    public void goToHomePage(){
+        HomePage.navigateToMarket(driver);
     }
 
     @AfterTest

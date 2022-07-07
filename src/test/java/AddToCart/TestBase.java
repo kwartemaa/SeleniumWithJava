@@ -1,4 +1,5 @@
 package AddToCart;
+import Pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import Pages.HomePage;
+
+
 
 public class TestBase {
     public static String browser = "chrome";
@@ -33,7 +37,16 @@ public class TestBase {
             }
         }
         driver.get(baseUrl);
+        driver.manage().window().maximize();
     }
+
+//    @BeforeMethod
+//    public void goToMarketPlace(){
+////        HomePage.navigateToMarket(driver);
+//        driver.get(baseUrl);
+//    }
+
+
 
     @AfterTest
     public void quitTest(){
