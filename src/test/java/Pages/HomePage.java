@@ -25,9 +25,30 @@ public class HomePage {
         cartIcon.click();
     }
 
+    public static void addThreeOfSameProductFromHome(WebDriver driver){
+        WebElement increaseQuantity = driver.findElement(By.xpath("//input[@id='quantity'][1]"));
+        WebElement cartIcon = driver.findElement(By.xpath("//button[@id='cart-button'][1]"));
+        increaseQuantity.click();
+        increaseQuantity.sendKeys("3");
+        cartIcon.click();
+    }
+
+
+
+    //img[@id='product-image'][1]
+
     public static void navigateToProductPage(WebDriver driver){
-        WebElement productImage = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@id='product-image'][1]")));
-        productImage.click();
+        WebElement allHomePageProducts = driver.findElement(By.xpath("//div[@id='product-row']"));
+        List<WebElement> products =  allHomePageProducts.findElements(By.xpath("./child::*"));
+        for (WebElement i: products){
+            
+        }
+//        for(WebElement element : productDivs) {
+//            if productDivs.contains()
+//
+//        }
+//        WebElement productImage = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@id='product-image'][1]")));
+//        productImage.click();
 //        WebElement productImage = driver.findElement(By.xpath("//img[@id='product-image'][1]"));
 //        productImage.click();
     }

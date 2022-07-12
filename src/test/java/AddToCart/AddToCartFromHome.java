@@ -21,8 +21,12 @@ public class AddToCartFromHome extends TestBase{
     }
 
     @Test
+    public static void addThreeOfSameProduct() throws InterruptedException{
+        HomePage.addThreeOfSameProductFromHome(driver);
+    }
+
+    @Test
     public static void addToCartFromProductPage() throws InterruptedException{
-        driver.get(baseUrl);
         HomePage.navigateToProductPage(driver);
         ProductPage.addToCartFromProductPage(driver);
         WebElement okButton = new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -30,6 +34,7 @@ public class AddToCartFromHome extends TestBase{
         okButton.click();
 
     }
+
 
 
 }
