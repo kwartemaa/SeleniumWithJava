@@ -16,7 +16,6 @@ public class ProductPage {
     public static void addToCartFromProductPage(WebDriver driver){
         WebElement addToCart= new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Add to cart')]")));
         addToCart.click();
-//        driver.findElement(By.xpath("//a[text()='Okay']")).click();
         }
 
             }

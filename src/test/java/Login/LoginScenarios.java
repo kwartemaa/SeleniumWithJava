@@ -29,6 +29,7 @@ public class LoginScenarios extends TestBase {
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='btn btn-primary btn-block editbtn']")));
         assert editButton.isDisplayed();
         BusinessProfile.logoutBusinessUser(driver);
+        // create a page called business profile and add a method called logoutBusinessUser
 
     }
 

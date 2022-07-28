@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.*;
+
 public class HomePage {
     WebDriver driver;
 
@@ -16,63 +16,35 @@ public class HomePage {
     }
 
     public static void navigateToLoginPage(WebDriver driver){
-     WebElement element =  driver.findElement(By.xpath("//a[@id='landingpage_login_btn']"));
-      element.click();
+        WebElement element =  driver.findElement(By.xpath("//a[@id='landingpage_login_btn']"));
+        element.click();
     }
 
     public static void addToCartFromHome(WebDriver driver){
         WebElement cartIcon = driver.findElement(By.xpath("//button[@id='cart-button'][1]"));
         cartIcon.click();
+
     }
 
-    public static void addThreeOfSameProductFromHome(WebDriver driver){
-        WebElement increaseQuantity = driver.findElement(By.xpath("//input[@id='quantity'][1]"));
-        WebElement cartIcon = driver.findElement(By.xpath("//button[@id='cart-button'][1]"));
-        increaseQuantity.click();
-        increaseQuantity.sendKeys("3");
-        cartIcon.click();
-    }
-
-
-
-    //img[@id='product-image'][1]
 
     public static void navigateToProductPage(WebDriver driver){
-        WebElement allHomePageProducts = driver.findElement(By.xpath("//div[@id='product-row']"));
-        List<WebElement> products =  allHomePageProducts.findElements(By.xpath("./child::*"));
-        for (WebElement i: products){
-            
-        }
-//        for(WebElement element : productDivs) {
-//            if productDivs.contains()
-//
-//        }
-//        WebElement productImage = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@id='product-image'][1]")));
-//        productImage.click();
-//        WebElement productImage = driver.findElement(By.xpath("//img[@id='product-image'][1]"));
-//        productImage.click();
+        WebElement productCard = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='product-row']>div[id='product-card-div']:nth-child(4)>:nth-child(2)")));
+        productCard.click();
+
     }
 
-    public static void deleteCartItem(WebDriver driver){
-//        WebElement cartIcon = driver.findElement(By.xpath("//a[@class='nav-link icon mobile-cart-position']"));
-//        cartIcon.click();
+    public static void viewShoppingCart(WebDriver driver){
         WebElement cartIcon = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='nav-link icon mobile-cart-position']")));
         cartIcon.click();
         WebElement viewCart = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'View Cart')]")));
         viewCart.click();
-        WebElement deleteOneItem = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@title='Delete']")));
-        deleteOneItem.click();
-        }
-//        driver.findElement(By.xpath("//*[contains(text(), 'View Cart')]")).click();
-//        driver.findElement(By.xpath("//div[@title='Delete']")).click();
+    }
 
-
-//    The method below will be moved to some sort of global methods page
     public static void navigateToMarket(WebDriver driver){
         WebElement logo = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='logo']")));
         logo.click();
-//        driver.findElement(By.xpath("//img[@alt='logo']")).click();
 
     }
 
