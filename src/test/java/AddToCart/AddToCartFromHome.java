@@ -26,12 +26,17 @@ public class AddToCartFromHome extends TestBase{
     public static void addToCartFromProductPage() throws InterruptedException{
         HomePage.navigateToProductPage(driver);
         ProductPage.addToCartFromProductPage(driver);
-        WebElement okButton = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Okay']")));
-        okButton.click();
+        ProductPage.clickOk(driver);
         WebElement cartQuantity = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[class='nav-unread badge badge-danger']")));
         Assert.assertTrue(cartQuantity.isDisplayed());
 
+    }
+
+    @Test
+   public static void addThreeProductToCart() throws InterruptedException{
+        HomePage.navigateToProductPage(driver);
+        ProductPage.updateProductQuantity(driver);
+        ProductPage.addToCartFromProductPage(driver);
     }
 
 

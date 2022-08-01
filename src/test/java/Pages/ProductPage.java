@@ -18,5 +18,16 @@ public class ProductPage {
         addToCart.click();
         }
 
+    public static void  updateProductQuantity(WebDriver driver){
+        WebElement productQuantity = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Qty']")));
+        productQuantity.sendKeys("3");
+        }
+
+
+    public static void clickOk(WebDriver driver){
+        WebElement okButton = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Okay']")));
+        okButton.click();
+    }
             }
 

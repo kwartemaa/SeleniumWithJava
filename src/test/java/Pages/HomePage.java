@@ -42,15 +42,4 @@ public class HomePage {
         viewCart.click();
     }
 
-    public static void navigateToMarket(WebDriver driver){
-        WebElement logo = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='logo']")));
-        logo.click();
-
-    }
-
-
-
-
-
-
 }
